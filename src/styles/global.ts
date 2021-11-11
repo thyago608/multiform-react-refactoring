@@ -39,7 +39,7 @@ export const GlobalStyles = createGlobalStyle`
 
     body{
         background: var(--gray-700);
-        color: var(---gray-100);
+        color: var(--gray-100);
     }
 
     button{
