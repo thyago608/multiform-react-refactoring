@@ -6,7 +6,7 @@ import { Container } from "./styles";
 export function Aside() {
   return (
     <Container>
-      <Link to="/">
+      <Link to="/" className="active">
         <div className="description">
           <h1>Pessoal</h1>
           <span>Se identifique</span>
