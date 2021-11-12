@@ -1,17 +1,17 @@
-import { FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useRoutes } from "react-router-dom";
 import { Form } from "components/Form";
-import { Input } from "components/Input";
 import { Button } from "components/Button";
-import { Main } from "./styles";
+import { Main, ContainerButtons } from "./styles";
 
 export function Professional() {
   const navigate = useNavigate();
 
-  function handleSubmitFromName(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
+  function handleSubmitFromLevel() {
     navigate("/contacts");
+  }
+
+  function handleGoBack() {
+    navigate("/");
   }
 
   return (
@@ -26,7 +26,16 @@ export function Professional() {
 
             <p>Selecione uma opção abaixo:</p>
 
-            <Button label="Próximo" type="submit" />
+            <ContainerButtons>
+              <button type="button" className="goBack" onClick={handleGoBack}>
+                Voltar
+              </button>
+              <Button
+                label="Próximo"
+                type="button"
+                onClick={handleSubmitFromLevel}
+              />
+            </ContainerButtons>
           </section>
         </Form>
       </Main>

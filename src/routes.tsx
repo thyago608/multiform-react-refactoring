@@ -8,8 +8,8 @@ const Navigation: React.FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/professional" element={<Professional />} />
-        <Route path="/contacts" element={<Contacts />} />
+        <Route path="professional" element={<Professional />} />
+        <Route path="contacts" element={<Contacts />} />
       </Routes>
     </BrowserRouter>
   );

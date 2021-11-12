@@ -26,7 +26,7 @@ export const Container = styled.aside`
     }
 
     & + a {
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
 
     &.active {

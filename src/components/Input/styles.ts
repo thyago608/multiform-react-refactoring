@@ -39,4 +39,8 @@ export const Container = styled.div<Props>`
       border-color: var(--green-400);
     }
   }
+
+  & + div {
+    margin-top: 1.2rem;
+  }
 `;
