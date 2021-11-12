@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-  max-width: 1120px;
+  max-width: 1000px;
   margin: 0 auto;
 
   .container-knowledge-level {
     padding: 2rem 3rem;
-
     flex: 1;
 
     header {
@@ -23,6 +22,8 @@ export const Main = styled.main`
 `;
 
 export const ContainerButtons = styled.div`
+  margin-top: 4rem;
+
   display: flex;
   justify-content: space-between;
 
