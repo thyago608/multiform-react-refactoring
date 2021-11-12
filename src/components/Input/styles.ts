@@ -20,12 +20,23 @@ export const Container = styled.div<Props>`
 
   input {
     height: 2.4rem;
+    padding: 0 0.8rem;
     background: #696969;
     border-radius: 2rem;
-    border: none;
+    border: 2px solid transparent;
+
+    color: var(--white);
 
     display: inline-block;
     width: 100%;
     max-width: 500px;
+
+    outline: none;
+
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: var(--green-400);
+    }
   }
 `;

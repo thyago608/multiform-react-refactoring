@@ -1,12 +1,17 @@
 import { FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { Form } from "components/Form";
 import { Input } from "components/Input";
 import { Button } from "components/Button";
 import { Main } from "./styles";
 
 export function Home() {
+  const navigate = useNavigate();
+
   function handleSubmitFromName(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    navigate("/professional");
   }
 
   return (
@@ -23,7 +28,7 @@ export function Home() {
 
             <form onSubmit={handleSubmitFromName}>
               <Input name="name" label="Seu nome completo" />
-              <Button label="Próximo" type="submit"/>
+              <Button label="Próximo" type="submit" />
             </form>
           </section>
         </Form>

@@ -4,8 +4,9 @@ export const Main = styled.main`
   max-width: 1120px;
   margin: 0 auto;
 
-  .container-lets-start {
+  .container-knowledge-level {
     padding: 2rem 3rem;
+
     flex: 1;
 
     header {
@@ -17,12 +18,6 @@ export const Main = styled.main`
 
     p {
       margin: 1rem 0 3rem;
-    }
-
-    form {
-      button {
-        margin-top: 5rem;
-      }
     }
   }
 `;

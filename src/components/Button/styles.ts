@@ -8,9 +8,9 @@ export const Container = styled.button`
   padding: 0 0.8rem;
   color: var(--gray-100);
   background: var(--violet-200);
-  transition: transform 0.2s ease;
+  transition: filter 0.3s ease;
 
   &:hover {
-    transform: scaleX(1.02);
+    filter: brightness(0.8);
   }
 `;
