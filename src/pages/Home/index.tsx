@@ -1,8 +1,14 @@
+import { FormEvent } from "react";
 import { Form } from "components/Form";
 import { Input } from "components/Input";
+import { Button } from "components/Button";
 import { Main } from "./styles";
 
 export function Home() {
+  function handleSubmitFromName(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+  }
+
   return (
     <>
       <Main>
@@ -14,7 +20,11 @@ export function Home() {
             </header>
 
             <p>Preencha o campo abaixo com seu nome completo:</p>
-            <Input name="name" label="Seu nome completo" />
+
+            <form onSubmit={handleSubmitFromName}>
+              <Input name="name" label="Seu nome completo" />
+              <Button label="Próximo" type="submit"/>
+            </form>
           </section>
         </Form>
       </Main>
