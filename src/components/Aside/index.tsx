@@ -6,7 +6,6 @@ import { Container } from "./styles";
 export function Aside() {
   const { pathname } = useLocation();
 
-  console.log(pathname);
   return (
     <Container>
       <Link to="/" className={pathname === "/" ? "active" : ""}>

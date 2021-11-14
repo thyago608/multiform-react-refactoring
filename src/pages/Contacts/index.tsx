@@ -1,16 +1,17 @@
-import { FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, FormEvent } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
 import { Form } from "components/Form";
 import { Input } from "components/Input";
 import { Button } from "components/Button";
 import { useForm } from "hooks/useForm";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Main, ContainerButtons } from "./styles";
+import { Main, Section, ContainerButtons } from "./styles";
 
 export function Contacts() {
   const navigate = useNavigate();
-  const { handleSetEmail, handleSetGithub } = useForm();
+  const { level, handleSetEmail, handleSetGithub } = useForm();
+  const [isVisible, setIsVisible] = useState(false);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -25,7 +26,7 @@ export function Contacts() {
       return toast.error(
         "Informe o email e o seu github para entramos em contato com você"
       );
-    };
+    }
 
     handleSetEmail(email.toString());
     handleSetGithub(github.toString());
@@ -37,12 +38,20 @@ export function Contacts() {
     navigate("/professional");
   }
 
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  if (!level) {
+    return <Navigate to="/professional" />;
+  }
+
   return (
     <>
       <Main>
         <ToastContainer theme="colored" />
         <Form>
-          <section className="container-where-do-we-find-you">
+          <Section className={`${isVisible ? "visible" : ""}`}>
             <header>
               <span>Passo 3/3</span>
               <h1>Legal Thyago, onde te achamos ?</h1>
@@ -73,7 +82,7 @@ export function Contacts() {
                 <Button label="Finalizar Cadastro" type="submit" />
               </ContainerButtons>
             </form>
-          </section>
+          </Section>
         </Form>
       </Main>
     </>

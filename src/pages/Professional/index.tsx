@@ -1,20 +1,20 @@
-import { FormEvent } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect, FormEvent } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
 import { Form } from "components/Form";
 import { Button } from "components/Button";
 import { InputRadio } from "components/InputRadio";
-import { FaSkull, FaSkullCrossbones, FaSmile } from "react-icons/fa";
+import { FaSkull, FaSmile } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { useForm } from "hooks/useForm";
 
-import { Main, ContainerButtons } from "./styles";
+import { Main, Section, ContainerButtons } from "./styles";
 
 export function Professional() {
   const navigate = useNavigate();
-  const { pathname } = useLocation();
   const { name, level, handleSetLevel } = useForm();
+  const [isVisible, setIsVisible] = useState(false);
 
   function handleSubmitFromLevel(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -33,13 +33,21 @@ export function Professional() {
   function handleGoBack() {
     navigate("/");
   }
+  
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  if (name.length === 0) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <>
       <ToastContainer theme="colored" />
       <Main>
         <Form>
-          <section className="container-knowledge-level">
+          <Section className={`${isVisible ? "visible" : ""}`}>
             <header>
               <span>Passo 2/3</span>
               <h1>{name}, qual é o seu nível de conhecimento ?</h1>
@@ -77,7 +85,7 @@ export function Professional() {
                 <Button label="Próximo" type="submit" />
               </ContainerButtons>
             </form>
-          </section>
+          </Section>
         </Form>
       </Main>
     </>
