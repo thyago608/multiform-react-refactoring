@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, ReactNode } from "react";
+import { InputHTMLAttributes, ReactNode, forwardRef } from "react";
 import { Container } from "./styles";
 
 type InputRadioProps = InputHTMLAttributes<HTMLInputElement> & {
@@ -7,16 +7,11 @@ type InputRadioProps = InputHTMLAttributes<HTMLInputElement> & {
   icon: ReactNode;
   selected: boolean;
 };
-export function InputRadio({
-  title,
-  subtitle,
-  icon,
-  selected,
-  ...rest
-}: InputRadioProps) {
-  return (
+
+export const InputRadio = forwardRef<HTMLInputElement, InputRadioProps>(
+  ({ title, subtitle, icon, selected, ...rest }, ref) => (
     <Container selected={selected}>
-      <input type="radio" id={rest.value as string} {...rest} />
+      <input type="radio" id={rest.value as string} {...rest} ref={ref} />
       <label htmlFor={rest.value as string} className="active">
         <div className="icon">{icon}</div>
 
@@ -26,5 +21,5 @@ export function InputRadio({
         </div>
       </label>
     </Container>
-  );
-}
+  )
+);
