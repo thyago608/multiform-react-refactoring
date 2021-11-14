@@ -33,10 +33,8 @@ export const Container = styled.div<Props>`
 
     outline: none;
 
-    caret-color: var(--green-400);
     text-transform: capitalize;
-
-    transition: border-color 0.2s ease;
+    transition: border-color 0.3s ease;
 
     &:focus {
       border-color: var(--green-400);

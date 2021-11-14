@@ -1,3 +1,4 @@
+import { FormContextProvider } from "context/FormContext";
 import { Header } from "components/Header";
 import Routes from "routes";
 
@@ -7,8 +8,10 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <Header />
-      <Routes />
+      <FormContextProvider>
+        <Header />
+        <Routes />
+      </FormContextProvider>
     </>
   );
 }

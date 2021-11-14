@@ -29,11 +29,6 @@ export const Container = styled.aside`
       margin-top: 2rem;
     }
 
-    &.active {
-      color: var(--green-400);
-      filter: brightness(0.9) contrast(1.9);
-    }
-
     &:after {
       content: "";
 
@@ -46,6 +41,12 @@ export const Container = styled.aside`
       position: absolute;
       right: -8px;
     }
+    
+    &.active {
+      color: var(--green-400);
+      filter: brightness(0.9) contrast(1.9);
+    }
+
 
     &.active:after {
       background: var(--green-400);

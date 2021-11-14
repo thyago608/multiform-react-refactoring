@@ -6,7 +6,7 @@ type Props = {
 
 export const Container = styled.div<Props>`
   background: var(--gray-600);
-  color: var(--white);
+  color: var(--gray-100);
   border-radius: 0.3rem;
 
   ${(props) =>
@@ -14,6 +14,7 @@ export const Container = styled.div<Props>`
     css`
       filter: brightness(0.8) contrast(1.7);
       background: var(--green-400);
+      color: var(--white);
     `}
 
   label {
@@ -21,6 +22,7 @@ export const Container = styled.div<Props>`
 
     display: flex;
     align-items: center;
+    gap: 1.5rem;
     cursor: pointer;
 
     .description-text {
@@ -34,8 +36,7 @@ export const Container = styled.div<Props>`
     }
 
     .icon {
-      margin: 0 1.5rem 0 1rem;
-
+      margin-left: 0.5rem;
       svg {
         font-size: 1.8rem;
       }
