@@ -11,7 +11,7 @@ import { Main } from "./styles";
 export function Home() {
   const navigate = useNavigate();
   const inputNameRef = useRef<HTMLInputElement>(null);
-  const { handleSetName } = useForm();
+  const { name, handleSetName } = useForm();
 
   function handleSubmitFromName(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -26,6 +26,7 @@ export function Home() {
 
     toast.error("Por favor, informe o seu nome");
   }
+
   return (
     <>
       <Main>
@@ -40,7 +41,12 @@ export function Home() {
             <p>Preencha o campo abaixo com seu nome completo:</p>
 
             <form onSubmit={handleSubmitFromName}>
-              <Input name="name" label="Seu nome completo" ref={inputNameRef} />
+              <Input
+                name="name"
+                label="Seu nome completo"
+                ref={inputNameRef}
+                defaultValue={name}
+              />
               <Button label="Próximo" type="submit" />
             </form>
           </section>

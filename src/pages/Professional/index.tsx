@@ -14,22 +14,19 @@ import { Main, ContainerButtons } from "./styles";
 export function Professional() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const { name, handleSetLevel } = useForm();
+  const { name, level, handleSetLevel } = useForm();
 
   function handleSubmitFromLevel(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
+    const input = document.querySelector<HTMLInputElement>(
+      `.input-radio-${level}`
+    );
 
-    const option = formData.get("level");
-
-    if (!option) {
-      return toast.error(
-        "Por favor, selecione o nível do seu conhecimento na area"
-      );
+    if (!input) {
+      return toast.error("Por favor, informe o seu nível de conhecimento!");
     }
-    
-    handleSetLevel(option.toString());
+
     navigate("/contacts");
   }
 
@@ -57,7 +54,9 @@ export function Professional() {
                 icon={<FaSkull />}
                 name="level"
                 value="iniciante"
-                selected={true}
+                selected={level === "iniciante"}
+                onClick={() => handleSetLevel("iniciante")}
+                className="input-radio-iniciante"
               />
 
               <InputRadio
@@ -66,7 +65,9 @@ export function Professional() {
                 icon={<FaSmile />}
                 name="level"
                 value="avançado"
-                selected={false}
+                selected={level === "avançado"}
+                onClick={() => handleSetLevel("avançado")}
+                className="input-radio-avançado"
               />
 
               <ContainerButtons>
